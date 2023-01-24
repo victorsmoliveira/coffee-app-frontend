@@ -6,9 +6,17 @@ import Card from '../components/Card';
 function Coffee() {
     const [measures, setMeasures] = useState({})
 
-    function calculateSpoons(numPeople, numRepeaters) {
-        const coffeeSpoonsCalc = Number(numPeople) + Number(numRepeaters) * 0.3
-        const waterLevelCalc = coffeeSpoonsCalc * 2.5;
+    function halfRound(n) {
+        return Math.round(n * 2) / 2
+    }
+
+    function calcMeasures(numPeople, numRepeaters) {
+        const waterLevelCalc = Math.max(
+            8,
+            Math.floor((Number(numPeople) + Number(numRepeaters) * 0.4) * 2.5)
+        );
+
+        const coffeeSpoonsCalc = halfRound(waterLevelCalc / 2.5)
 
         setMeasures(
             {
@@ -22,7 +30,7 @@ function Coffee() {
         <>
             <div className="">
                 <div className='flex justify-center px-6 pb-8'>
-                    <CoffeeInputs calculateCoffeeFunction={calculateSpoons} />
+                    <CoffeeInputs calculateCoffeeFunction={calcMeasures} />
                 </div>
 
                 <div className='flex flex-wrap justify-center'>
