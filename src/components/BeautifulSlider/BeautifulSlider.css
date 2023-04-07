@@ -1,0 +1,8 @@
+.beautiful-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    opacity: 0;
+}
+
+.beautiful-slider::-moz-range-thumb {
+    opacity: 0;
+}

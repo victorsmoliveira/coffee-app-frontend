@@ -1,8 +1,8 @@
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NotFound from './components/NotFound';
+import NotFound from './components/NotFound/NotFound';
 import Coffee from './pages/Coffee';
-import Background from './components/Background';
+import Background from './components/Background/Background';
 
 function App() {
     return (

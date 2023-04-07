@@ -1,7 +1,8 @@
 import '../index.css';
 import { useState } from 'react';
-import CoffeeInputs from '../components/CoffeeInputs';
-import Card from '../components/Card';
+import CoffeeInputs from '../components/CoffeeInputs/CoffeeInputs';
+import Card from '../components/Card/Card';
+import logo from '../images/coffee_mug_logo.png';
 
 function Coffee() {
     const [measures, setMeasures] = useState({})
@@ -28,18 +29,29 @@ function Coffee() {
 
     return (
         <>
-            <div className="">
-                <div className='flex justify-center px-6 pb-8'>
-                    <CoffeeInputs calculateCoffeeFunction={calcMeasures} />
+            <div className="flex-1">
+                <div
+                    className="bg-gradient-to-r from-dark-brown to-light-brown  text-white text-4xl font-bold py-4 px-6"
+                >
+                    <div className="flex items-center space-x-4">
+                        <img src={logo} alt="Logo" className="h-12 mt-[-10px]" />
+                        <span>Café Matemático</span>
+                    </div>
                 </div>
 
-                <div className='flex flex-wrap justify-center'>
-                    <div className="flex justify-center px-6 py-6" >
-                        <Card title="Scoops de café" number={measures.coffeeSpoons ?? "..."} />
+                <div className="flex-1 px-3 py-8">
+                    <div className='flex justify-center px-6 pb-8 mt-4'>
+                        <CoffeeInputs calculateCoffeeFunction={calcMeasures} />
                     </div>
 
-                    <div className="flex justify-center px-6 py-6" >
-                        <Card title="Nível da água" number={measures.waterLevel ?? "..."} />
+                    <div className='flex flex-wrap justify-center'>
+                        <div className="flex justify-center px-6 py-6" >
+                            <Card title="Scoops de café" number={measures.coffeeSpoons ?? "..."} />
+                        </div>
+
+                        <div className="flex justify-center px-6 py-6" >
+                            <Card title="Nível da água" number={measures.waterLevel ?? "..."} />
+                        </div>
                     </div>
                 </div>
             </div>
