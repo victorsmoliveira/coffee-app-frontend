@@ -7,9 +7,9 @@ function BeautifulSlider({ label, id, value, onChange, min, max, step }) {
       <label className="block text-gray-900 font-bold mb-2" htmlFor={id}>
         {label}
       </label>
-      <div className="relative">
+      <div className="flex items-center">
         <input
-          className="beautiful-slider w-full h-1.5 bg-gray-200 appearance-none outline-none"
+          className="beautiful-slider mr-4"
           id={id}
           type="range"
           value={value}
@@ -18,14 +18,9 @@ function BeautifulSlider({ label, id, value, onChange, min, max, step }) {
           max={max}
           step={step}
         />
-        <div
-          className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-purple-400 to-blue-500"
-          style={{ width: `${((value - min) / (max - min)) * 100}%` }}
-        ></div>
-        <div
-          className="absolute top-0 left-0 w-4 h-4 -mt-1 -ml-2 bg-white border border-purple-400 rounded-full shadow-md"
-          style={{ left: `${((value - min) / (max - min)) * 100}%` }}
-        ></div>
+        <div className="text-gray-900 font-bold pl-2">
+          {value}
+        </div>
       </div>
     </div>
   );
