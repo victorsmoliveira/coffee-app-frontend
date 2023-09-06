@@ -21,14 +21,7 @@ function CoffeeInputs(props) {
     const handleNumRepeatersChange = (e) => {
         const newNumRepeaters = parseInt(e.target.value);
 
-        console.log(e.target.value)
-
         if (newNumRepeaters <= numPeople) {
-            console.log("newNumRepeaters", newNumRepeaters)
-            console.log("numPeople", numPeople)
-            if (newNumRepeaters <= numPeople) {
-                console.log("what")
-            }
             setNumRepeaters(newNumRepeaters);
             props.calculateCoffeeFunction(numPeople, newNumRepeaters);
         }
