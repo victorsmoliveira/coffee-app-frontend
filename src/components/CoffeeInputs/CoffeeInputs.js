@@ -9,17 +9,28 @@ function CoffeeInputs(props) {
     const [numRepeaters, setNumRepeaters] = useState(0);
 
     const handleNumPeopleChange = (e) => {
-        setNumPeople(e.target.value);
-        if (numRepeaters > e.target.value) {
-            setNumRepeaters(e.target.value);
+        const newNumPeople = parseInt(e.target.value);
+        setNumPeople(newNumPeople);
+
+        if (numRepeaters > newNumPeople) {
+            setNumRepeaters(newNumPeople);
         }
-        props.calculateCoffeeFunction(e.target.value, numRepeaters);
+        props.calculateCoffeeFunction(newNumPeople, numRepeaters);
     };
 
     const handleNumRepeatersChange = (e) => {
-        if (e.target.value <= numPeople) {
-            setNumRepeaters(e.target.value);
-            props.calculateCoffeeFunction(numPeople, e.target.value);
+        const newNumRepeaters = parseInt(e.target.value);
+
+        console.log(e.target.value)
+
+        if (newNumRepeaters <= numPeople) {
+            console.log("newNumRepeaters", newNumRepeaters)
+            console.log("numPeople", numPeople)
+            if (newNumRepeaters <= numPeople) {
+                console.log("what")
+            }
+            setNumRepeaters(newNumRepeaters);
+            props.calculateCoffeeFunction(numPeople, newNumRepeaters);
         }
     };
 
